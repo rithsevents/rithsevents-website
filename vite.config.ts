@@ -5,7 +5,7 @@ import { defineConfig } from 'vite';
 
 export default defineConfig(({ mode }) => {
   return {
-    base: mode === 'production' ? '/ryths-events/' : '/',
+    base: mode === 'production' ? '/rythsevents-website/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
