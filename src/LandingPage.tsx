@@ -43,7 +43,7 @@ const Navbar = () => {
               key={link.name}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-gold",
+                "text-lg font-medium transition-colors hover:text-gold",
                 isScrolled ? "text-charcoal" : "text-white"
               )}
             >
@@ -52,7 +52,7 @@ const Navbar = () => {
           ))}
           <a
             href="#contact"
-            className="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-gold/20"
+            className="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-full text-base font-semibold transition-all shadow-lg hover:shadow-gold/20"
           >
             Book Now
           </a>
@@ -88,7 +88,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-lg font-medium text-charcoal hover:text-gold"
+                className="text-xl font-medium text-charcoal hover:text-gold"
               >
                 {link.name}
               </a>
@@ -580,7 +580,7 @@ const Footer = () => {
             <Logo isLight={true} />
           </a>
           
-          <div className="flex gap-8 text-sm font-medium text-gray-500">
+          <div className="flex gap-8 text-base font-medium text-gray-500">
             <a href="#home" className="hover:text-gold">Home</a>
             <a href="#services" className="hover:text-gold">Services</a>
             <a href="#gallery" className="hover:text-gold">Gallery</a>
