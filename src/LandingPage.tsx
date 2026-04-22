@@ -467,10 +467,10 @@ const ContactForm = () => {
             </div>
 
             <div className="flex gap-4 mt-12">
-              <a href="#" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/40 transition-colors">
+              <a href="https://www.instagram.com/rithseventmania/" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/40 transition-colors">
+              <a href="https://www.facebook.com/nivedha.nivedha.56481/" className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -602,7 +602,7 @@ const WhatsAppButton = () => {
   
   return (
     <motion.a
-      href={`https://wa.me/${whatsappNumber}`}
+      href={`https://wa.me/${whatsappNumber}?text=Hi%20Riths%20Events,%20I'm%20interested%20in%20your%20services!`}
       target="_blank"
       rel="noopener noreferrer"
       whileHover={{ scale: 1.1 }}
