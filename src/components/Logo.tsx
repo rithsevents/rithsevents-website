@@ -47,7 +47,7 @@ export const Logo: React.FC<LogoProps> = ({ className, isLight = false }) => {
           "text-xl md:text-2xl font-serif font-bold tracking-tighter transition-colors",
           isLight ? "text-charcoal" : "text-white"
         )}>
-          RYTHS
+          RITHS
         </span>
         <span className="text-[10px] md:text-xs font-sans font-bold tracking-[0.3em] text-gold uppercase">
           Events
