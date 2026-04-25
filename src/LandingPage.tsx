@@ -178,42 +178,42 @@ const Services = () => {
       title: "Weddings/Receptions",
       description:
         "Comprehensive wedding planning, from intimate ceremonies to lavish celebrations, tailored to your unique love story.",
-      image: "/assets/images/wedding-image.jpg",
+      image: "assets/images/wedding-image.jpg",
       icon: "💑",
     },
     {
       title: "Corporate Events",
       description:
         "Professional management for conferences, product launches, and galas.",
-      image: "/assets/images/corporate-event.jpg",
+      image: "assets/images/corporate-event.jpg",
       icon: "🏢",
     },
     {
       title: "Birthday Partys & Private Gatherings",
       description:
         "Birthdays, anniversaries, and intimate gatherings with a unique touch.",
-      image: "/assets/images/birthday-party.jpg",
+      image: "assets/images/birthday-party.jpg",
       icon: "🎉",
     },
     {
       title: "Surprise Decor",
       description:
         "Transform any space with our surprise decor services for unforgettable moments.",
-      image: "/assets/images/surprise-decor.jpg",
+      image: "assets/images/surprise-decor.jpg",
       icon: "🎈",
     },
     {
       title: "Baby Shower",
       description:
         "Celebrate your baby's arrival with our elegant and personalized baby shower planning.",
-      image: "/assets/images/baby-shower.jpg",
+      image: "assets/images/baby-shower.jpg",
       icon: "👶",
     },
     {
       title: "Engagement Function",
       description:
         "Make your engagement function unforgettable with our expert planning and personalized touches.",
-      image: "/assets/images/engagement-function.jpg",
+      image: "assets/images/engagement-function.jpg",
       icon: "💍",
     },
   ];
