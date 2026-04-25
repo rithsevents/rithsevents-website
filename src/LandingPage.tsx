@@ -175,36 +175,46 @@ const Hero = () => {
 const Services = () => {
   const services = [
     {
-      title: "Weddings",
+      title: "Weddings/Receptions",
       description:
-        "Bespoke wedding planning from conceptualization to the final toast.",
-      image:
-        "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800",
-      icon: "💍",
+        "Comprehensive wedding planning, from intimate ceremonies to lavish celebrations, tailored to your unique love story.",
+      image: "/assets/images/wedding-image.jpg",
+      icon: "💑",
     },
     {
       title: "Corporate Events",
       description:
         "Professional management for conferences, product launches, and galas.",
-      image:
-        "https://images.unsplash.com/photo-1505373630103-f21ee09dcf73?auto=format&fit=crop&q=80&w=800",
+      image: "/assets/images/corporate-event.jpg",
       icon: "🏢",
     },
     {
-      title: "Private Parties",
+      title: "Birthday Partys & Private Gatherings",
       description:
         "Birthdays, anniversaries, and intimate gatherings with a unique touch.",
-      image:
-        "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&q=80&w=800",
+      image: "/assets/images/birthday-party.jpg",
       icon: "🎉",
     },
     {
-      title: "Destination Events",
+      title: "Surprise Decor",
       description:
-        "Seamless planning for events at breathtaking locations worldwide.",
-      image:
-        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&q=80&w=800",
-      icon: "✈️",
+        "Transform any space with our surprise decor services for unforgettable moments.",
+      image: "/assets/images/surprise-decor.jpg",
+      icon: "🎈",
+    },
+    {
+      title: "Baby Shower",
+      description:
+        "Celebrate your baby's arrival with our elegant and personalized baby shower planning.",
+      image: "/assets/images/baby-shower.jpg",
+      icon: "👶",
+    },
+    {
+      title: "Engagement Function",
+      description:
+        "Make your engagement function unforgettable with our expert planning and personalized touches.",
+      image: "/assets/images/engagement-function.jpg",
+      icon: "💍",
     },
   ];
 
