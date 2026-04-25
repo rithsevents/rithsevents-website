@@ -457,7 +457,7 @@ const About = () => {
 const Testimonials = () => {
   const reviews = [
     {
-      name: "Reviewer 1",
+      name: "Feedback 1",
       role: "Wedding Clients",
       text: `Sharing my honest review!!. My entire family was so so happy with all your works, everything was so neat and perfect. No clumsiness really so well organized. All your staffs were so kind enough we had a stress free event 🥰
              Food was really good i was bit worried as I did not taste before but it was so good ❤️ Next non veg event enga panreenga nu solunga will come for tasting 😜 
@@ -465,7 +465,7 @@ const Testimonials = () => {
       avatar: "",
     },
     {
-      name: "Reviewer 2",
+      name: "Feedback 2",
       role: "Birthday Event",
       text: `A huge thank you to Rithevents Mania (Mrs.Nivedha and team) for an absolutely perfect birthday party!
        I was initially skeptical and worried about how it would all come together,
