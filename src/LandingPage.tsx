@@ -137,8 +137,8 @@ const Hero = () => {
             <span className="italic">Moments of Magic</span>
           </h1>
           <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-            From Weddings to grand celebrations
-            Let's make your event grand, colourful and extraordinary together.
+            From Weddings to grand celebrations Let's make your event grand,
+            colourful and extraordinary together.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -182,6 +182,13 @@ const Services = () => {
       icon: "💑",
     },
     {
+      title: "Engagement Function",
+      description:
+        "Make your engagement function unforgettable with our expert planning and personalized touches.",
+      image: "assets/images/services/engagement-function.jpg",
+      icon: "💍",
+    },
+    {
       title: "Corporate Events",
       description:
         "Professional management for conferences, product launches, and galas.",
@@ -210,11 +217,11 @@ const Services = () => {
       icon: "👶",
     },
     {
-      title: "Engagement Function",
+      title: "Catering Services - Yogaambiga",
       description:
-        "Make your engagement function unforgettable with our expert planning and personalized touches.",
-      image: "assets/images/services/engagement-function.jpg",
-      icon: "💍",
+        "We are the 4th Generation of Caterers, operating in the name of Yogaambiga catering service",
+      image: "assets/images/services/Catering-service.webp",
+      icon: "🍽️",
     },
   ];
 
@@ -256,7 +263,12 @@ const Services = () => {
                   {service.description}
                 </p>
                 <a
-                  href="#contact"
+                  href={
+                    idx === 3
+                      ? "assets/images/package-details/birthday-package.jpeg"
+                      : "#contact"
+                  }
+                  target={idx === 3 ? "_blank" : undefined}
                   className="text-gold font-semibold text-sm hover:underline"
                 >
                   Learn More →
@@ -287,7 +299,7 @@ const Gallery = () => {
     "assets/images/gallery/cakes/cake-3.webp",
     "assets/images/gallery/cakes/cake-4.webp",
     "assets/images/gallery/cakes/cake-5.webp",
-  ]
+  ];
 
   return (
     <section id="gallery" className="py-24 bg-white">
@@ -302,8 +314,8 @@ const Gallery = () => {
             </h3>
           </div>
           <p className="text-gray-500 max-w-md">
-            We make every event unique and memorable. Each
-            photo tells a story of celebration and joy.
+            We make every event unique and memorable. Each photo tells a story
+            of celebration and joy.
           </p>
         </div>
 
@@ -336,7 +348,7 @@ const Gallery = () => {
           ))}
         </div>
       </div>
-      <br/>
+      <br />
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
@@ -345,7 +357,9 @@ const Gallery = () => {
             </h3>
           </div>
           <p className="text-gray-500 max-w-md">
-            Our colourful cakes are the centerpiece of every celebration, crafted with love and creativity to delight both the eyes and the palate.
+            Our colourful cakes are the centerpiece of every celebration,
+            crafted with love and creativity to delight both the eyes and the
+            palate.
           </p>
         </div>
 
@@ -443,23 +457,24 @@ const About = () => {
 const Testimonials = () => {
   const reviews = [
     {
-      name: "Sarah & James",
+      name: "Reviewer 1",
       role: "Wedding Clients",
-      text: "riths Events made our dream wedding a reality. Their attention to detail was incredible, and they handled everything so we could just enjoy our day.",
-      avatar: "https://i.pravatar.cc/150?u=sarah",
+      text: `Sharing my honest review!!. My entire family was so so happy with all your works, everything was so neat and perfect. No clumsiness really so well organized. All your staffs were so kind enough we had a stress free event 🥰
+             Food was really good i was bit worried as I did not taste before but it was so good ❤️ Next non veg event enga panreenga nu solunga will come for tasting 😜 
+             \n Over all super good event, much recommend Riths Events 🙏🔥`,
+      avatar: "",
     },
     {
-      name: "Michael Chen",
-      role: "CEO, TechCorp",
-      text: "The product launch event was flawless. Professional, creative, and highly efficient. We couldn't have asked for a better partner.",
-      avatar: "https://i.pravatar.cc/150?u=michael",
-    },
-    {
-      name: "Elena Rodriguez",
-      role: "Private Party",
-      text: "My 40th birthday was spectacular! The theme was executed perfectly and all my guests were blown away by the decor.",
-      avatar: "https://i.pravatar.cc/150?u=elena",
-    },
+      name: "Reviewer 2",
+      role: "Birthday Event",
+      text: `A huge thank you to Rithevents Mania (Mrs.Nivedha and team) for an absolutely perfect birthday party!
+       I was initially skeptical and worried about how it would all come together,
+      but your team completely blew me away. The moment I saw the initial setup, all my concerns vanished.
+      The arrangements were flawless. The food was delicious. I'm really impressed on your team's work and their humbleness. You exceeded all my expectations!.
+      Thanks again,The party was a huge success. This made us proud 😊 
+      Wishing you continued success. Highly recommended!`,
+      avatar: "",
+    }
   ];
 
   return (
@@ -467,7 +482,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-gold font-semibold uppercase tracking-widest text-sm mb-2">
-            Testimonials
+            Our Happy Clients
           </h2>
           <h3 className="text-4xl md:text-5xl font-serif text-charcoal">
             What Our Clients Say
@@ -492,11 +507,13 @@ const Testimonials = () => {
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                <img
-                  src={review.avatar}
-                  alt={review.name}
-                  className="w-12 h-12 rounded-full object-cover"
-                />
+                { review?.avatar && (
+                  <img
+                    src={review?.avatar}
+                    alt={review.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                )}
                 <div>
                   <h4 className="font-bold text-charcoal">{review.name}</h4>
                   <p className="text-xs text-gray-400 uppercase tracking-wider">
