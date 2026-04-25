@@ -137,8 +137,8 @@ const Hero = () => {
             <span className="italic">Moments of Magic</span>
           </h1>
           <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-            From intimate weddings to grand corporate galas, we bring your
-            vision to life with precision, elegance, and soul.
+            From Weddings to grand celebrations
+            Let's make your event grand, colourful and extraordinary together.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <a
@@ -178,42 +178,42 @@ const Services = () => {
       title: "Weddings/Receptions",
       description:
         "Comprehensive wedding planning, from intimate ceremonies to lavish celebrations, tailored to your unique love story.",
-      image: "assets/images/wedding-image.jpg",
+      image: "assets/images/services/wedding-image.jpg",
       icon: "💑",
     },
     {
       title: "Corporate Events",
       description:
         "Professional management for conferences, product launches, and galas.",
-      image: "assets/images/corporate-event.jpg",
+      image: "assets/images/services/corporate-event.jpg",
       icon: "🏢",
     },
     {
       title: "Birthday Partys & Private Gatherings",
       description:
         "Birthdays, anniversaries, and intimate gatherings with a unique touch.",
-      image: "assets/images/birthday-party.jpg",
+      image: "assets/images/services/birthday-party.jpg",
       icon: "🎉",
     },
     {
       title: "Surprise Decor",
       description:
         "Transform any space with our surprise decor services for unforgettable moments.",
-      image: "assets/images/surprise-decor.jpg",
+      image: "assets/images/services/surprise-decor.jpg",
       icon: "🎈",
     },
     {
       title: "Baby Shower",
       description:
         "Celebrate your baby's arrival with our elegant and personalized baby shower planning.",
-      image: "assets/images/baby-shower.jpg",
+      image: "assets/images/services/baby-shower.jpg",
       icon: "👶",
     },
     {
       title: "Engagement Function",
       description:
         "Make your engagement function unforgettable with our expert planning and personalized touches.",
-      image: "assets/images/engagement-function.jpg",
+      image: "assets/images/services/engagement-function.jpg",
       icon: "💍",
     },
   ];
@@ -271,14 +271,23 @@ const Services = () => {
 };
 
 const Gallery = () => {
-  const images = [
-    "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1530103043960-ef38714abb15?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&q=80&w=800",
+  const stage = [
+    "assets/images/gallery/stage/photo-1.webp",
+    "assets/images/gallery/stage/photo-2.webp",
+    "assets/images/gallery/stage/photo-3.webp",
+    "assets/images/gallery/stage/photo-4.webp",
+    "assets/images/gallery/stage/photo-5.webp",
+    "assets/images/gallery/stage/photo-6.webp",
+    "assets/images/gallery/stage/photo-7.webp",
   ];
+
+  const cakes = [
+    "assets/images/gallery/cakes/cake-1.webp",
+    "assets/images/gallery/cakes/cake-2.webp",
+    "assets/images/gallery/cakes/cake-3.webp",
+    "assets/images/gallery/cakes/cake-4.webp",
+    "assets/images/gallery/cakes/cake-5.webp",
+  ]
 
   return (
     <section id="gallery" className="py-24 bg-white">
@@ -286,20 +295,20 @@ const Gallery = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
             <h2 className="text-gold font-semibold uppercase tracking-widest text-sm mb-2">
-              Portfolio
+              Gallery
             </h2>
             <h3 className="text-4xl md:text-5xl font-serif text-charcoal">
-              Moments We've Created
+              Our Birthday Decorations
             </h3>
           </div>
           <p className="text-gray-500 max-w-md">
-            A glimpse into the elegance and detail we bring to every event. Each
+            We make every event unique and memorable. Each
             photo tells a story of celebration and joy.
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-          {images.map((img, idx) => (
+          {stage.map((img, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.9 }}
@@ -308,20 +317,58 @@ const Gallery = () => {
               transition={{ delay: idx * 0.1 }}
               className={cn(
                 "relative overflow-hidden rounded-2xl group cursor-pointer aspect-square",
-                idx === 1 && "md:row-span-2 md:aspect-auto",
+                "md:row-span-2 md:aspect-auto",
               )}
             >
-              <img
-                src={img}
-                alt={`Gallery ${idx}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <a href={img} target="_blank">
+                <img
+                  src={img}
+                  alt={`Gallery ${idx}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </a>
+              {/* <div className="absolute inset-0 bg-gold/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg transform scale-0 group-hover:scale-100 transition-transform duration-500">
-                  <Instagram className="text-gold w-6 h-6" />
+                  Text
                 </div>
-              </div>
+              </div> */}
+            </motion.div>
+          ))}
+        </div>
+      </div>
+      <br/>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <h3 className="text-4xl md:text-5xl font-serif text-charcoal">
+              Our Colourful Cakes
+            </h3>
+          </div>
+          <p className="text-gray-500 max-w-md">
+            Our colourful cakes are the centerpiece of every celebration, crafted with love and creativity to delight both the eyes and the palate.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          {cakes.map((img, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className={cn(
+                "relative overflow-hidden rounded-2xl group cursor-pointer aspect-square",
+                "md:row-span-2 md:aspect-auto",
+              )}
+            >
+              <a href={img} target="_blank">
+                <img
+                  src={img}
+                  alt={`Gallery ${idx}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </a>
             </motion.div>
           ))}
         </div>
