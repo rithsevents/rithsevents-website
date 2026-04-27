@@ -34,11 +34,12 @@ const Navbar = () => {
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <a href="#home">
-          <Logo isLight={isScrolled} />
-        </a>
+        <div className="flex items-center justify-start gap-12">
+          <a href="#home" className="flex-shrink-0">
+            <Logo isLight={isScrolled} />
+          </a>
+        </div>
 
-        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
@@ -60,48 +61,18 @@ const Navbar = () => {
             Book Now
           </a>
         </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className={cn(
-            "md:hidden transition-colors",
-            isScrolled ? "text-charcoal" : "text-white",
-          )}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-100 p-6 md:hidden flex flex-col gap-4"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="text-xl font-medium text-charcoal hover:text-gold"
-              >
-                {link.name}
-              </a>
-            ))}
-            <a
-              href="#contact"
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="bg-gold text-white text-center py-3 rounded-xl font-bold mt-2"
-            >
-              Get a Quote
-            </a>
-          </motion.div>
+      {/* Mobile Menu Toggle */}
+      <button
+        className={cn(
+          "md:hidden transition-colors",
+          isScrolled ? "text-charcoal" : "text-white",
         )}
-      </AnimatePresence>
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        {isMobileMenuOpen ? <X /> : <Menu />}
+      </button>
     </nav>
   );
 };
@@ -217,9 +188,10 @@ const Services = () => {
       icon: "👶",
     },
     {
-      title: "Catering Services - Yogaambiga",
+      title: "Yogaambiga Caterers",
       description:
-        "We are the 4th Generation of Caterers, operating in the name of Yogaambiga catering service",
+        `We are the 4th generation of caterers, by following our family's legacy of catering service.
+         We provide a wide range of delicious and authentic dishes that will satisfy your taste buds and make your event unforgettable.`,
       image: "assets/images/services/Catering-service.webp",
       icon: "🍽️",
     },
@@ -264,11 +236,11 @@ const Services = () => {
                 </p>
                 <a
                   href={
-                    idx === 3
+                    /* idx === 3
                       ? "assets/images/package-details/birthday-package.jpeg"
-                      : "#contact"
+                      : */ "#contact"
                   }
-                  target={idx === 3 ? "_blank" : undefined}
+                  // target={idx === 3 ? "_blank" : undefined}
                   className="text-gold font-semibold text-sm hover:underline"
                 >
                   Learn More →
@@ -441,7 +413,7 @@ const About = () => {
                 </div>
               </div>
               <div>
-                <div className="text-4xl font-serif text-gold mb-2">500+</div>
+                <div className="text-4xl font-serif text-gold mb-2">10000+</div>
                 <div className="text-sm text-white/50 uppercase tracking-widest">
                   Events Managed
                 </div>
@@ -457,16 +429,16 @@ const About = () => {
 const Testimonials = () => {
   const reviews = [
     {
-      name: "Feedback 1",
-      role: "Wedding Client",
+      name: "Wedding Event",
+      role: "",
       text: `Sharing my honest review!!. My entire family was so so happy with all your works, everything was so neat and perfect. No clumsiness really so well organized. All your staffs were so kind enough we had a stress free event 🥰
              Food was really good i was bit worried as I did not taste before but it was so good ❤️ Next non veg event enga panreenga nu solunga will come for tasting 😜 
              \n Over all super good event, much recommend Riths Events 🙏🔥`,
       avatar: "",
     },
     {
-      name: "Feedback 2",
-      role: "Birthday Event",
+      name: "Birthday Event",
+      role: "",
       text: `A huge thank you to Rithevents Mania (Mrs.Nivedha and team) for an absolutely perfect birthday party!
        I was initially skeptical and worried about how it would all come together,
       but your team completely blew me away. The moment I saw the initial setup, all my concerns vanished.
@@ -788,7 +760,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-gold font-semibold hover:underline transition-all"
             >
-              Karpi AI Labs
+              Karpi Tech Labs
             </a>
           </div>
         </div>

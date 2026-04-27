@@ -8,12 +8,12 @@ interface LogoProps {
 
 export const Logo: React.FC<LogoProps> = ({ className, isLight = false }) => {
   return (
-    <div className={cn("flex items-center gap-2 group cursor-pointer", className)}>
+    <div className={cn("flex items-center gap-2 group cursor-pointer justify-start", className)}>
       <div className="relative flex items-center justify-center">
         {/* Abstract Icon: A stylized 'R' that doubles as a sparkle/shining star */}
         <svg
           viewBox="0 0 40 40"
-          className="w-8 h-8 md:w-10 md:h-10 transition-transform duration-500 group-hover:rotate-12"
+          className="w-12 h-12 md:w-16 md:h-16 transition-transform duration-500 group-hover:rotate-12"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -42,14 +42,14 @@ export const Logo: React.FC<LogoProps> = ({ className, isLight = false }) => {
         </svg>
       </div>
       
-      <div className="flex flex-col -space-y-1">
+      <div className="flex flex-col items-start leading-none">
         <span className={cn(
-          "text-xl md:text-2xl font-serif font-bold tracking-tighter transition-colors",
+          "text-3xl md:text-5xl font-serif font-bold tracking-tight transition-colors",
           isLight ? "text-charcoal" : "text-white"
         )}>
           RITHS
         </span>
-        <span className="text-[10px] md:text-xs font-sans font-bold tracking-[0.3em] text-gold uppercase">
+        <span className="text-[11px] md:text-base font-sans font-bold text-gold uppercase -mt-1 ml-[2px] md:ml-[3px]">
           Events
         </span>
       </div>
