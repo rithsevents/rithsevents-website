@@ -84,7 +84,7 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
             className="fixed inset-0 z-[100] flex md:hidden"
-            style={{ pointerEvents: 'auto' }}
+            style={{ pointerEvents: "auto" }}
           >
             {/* Overlay */}
             <div
@@ -94,12 +94,12 @@ const Navbar = () => {
             />
             {/* Sidebar */}
             <motion.div
-              initial={{ x: '100%' }}
+              initial={{ x: "100%" }}
               animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
               className="ml-auto w-4/5 max-w-xs h-full bg-white shadow-2xl flex flex-col relative z-10"
-              style={{ minWidth: '260px', height: '100vh' }}
+              style={{ minWidth: "260px", height: "100vh" }}
             >
               <button
                 className="absolute top-4 right-4 text-charcoal"
@@ -254,8 +254,7 @@ const Services = () => {
     },
     {
       title: "Yogaambiga Caterers",
-      description:
-        `We are the 4th generation of caterers, by following our family's legacy of catering service.
+      description: `We are the 4th generation of caterers, by following our family's legacy of catering service.
          We provide a wide range of delicious and authentic dishes that will satisfy your taste buds and make your event unforgettable.`,
       image: "assets/images/services/Catering-service.webp",
       icon: "🍽️",
@@ -494,7 +493,7 @@ const About = () => {
 const Testimonials = () => {
   const reviews = [
     {
-      name: "Wedding Event",
+      name: "Wedding Client 💑",
       role: "",
       text: `Sharing my honest review!!. My entire family was so so happy with all your works, everything was so neat and perfect. No clumsiness really so well organized. All your staffs were so kind enough we had a stress free event 🥰
              Food was really good i was bit worried as I did not taste before but it was so good ❤️ Next non veg event enga panreenga nu solunga will come for tasting 😜 
@@ -502,7 +501,13 @@ const Testimonials = () => {
       avatar: "",
     },
     {
-      name: "Birthday Event",
+      name: "Baby Shower Client 👶",
+      role: "",
+      text: `I have no words to say. How happy I'm am. In front of my family 🙏🙏🙏 Thank you. I have recommended ur catering service in our area`,
+      avatar: "",
+    },
+    {
+      name: "Birthday Client 🎉",
       role: "",
       text: `A huge thank you to Rithevents Mania (Mrs.Nivedha and team) for an absolutely perfect birthday party!
        I was initially skeptical and worried about how it would all come together,
@@ -511,7 +516,16 @@ const Testimonials = () => {
       Thanks again,The party was a huge success. This made us proud 😊 
       Wishing you continued success. Highly recommended!`,
       avatar: "",
-    }
+    },
+    {
+      name: "Birthday Client 🎉",
+      role: "",
+      text: `Madam everything was super and amazing mam...guest ellarum food yaru panna yaru panna nu kettanga mam..ungalaa naraya per
+      ku refer panniruka mam...cake aslo super mam...✌️. Food wise la ungalaa adichika yarume illa mam.
+      thankyou mam ivlo affordable ahh panni kuduthinga enga budget la. 
+      kandipa ungaloda growth Vera Level ah varum mam 💯💯.`,
+      avatar: "",
+    },
   ];
 
   return (
@@ -544,7 +558,7 @@ const Testimonials = () => {
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                { review?.avatar && (
+                {review?.avatar && (
                   <img
                     src={review?.avatar}
                     alt={review.name}
