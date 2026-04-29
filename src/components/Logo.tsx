@@ -1,14 +1,24 @@
-import React from 'react';
-import { cn } from '../lib/utils';
+import React from "react";
+import { cn } from "../lib/utils";
 
 interface LogoProps {
   className?: string;
   isLight?: boolean;
+  forceDark?: boolean;
 }
 
-export const Logo: React.FC<LogoProps> = ({ className, isLight = false }) => {
+export const Logo: React.FC<LogoProps> = ({
+  className,
+  isLight = false,
+  forceDark = false,
+}) => {
   return (
-    <div className={cn("flex items-center gap-2 group cursor-pointer justify-start", className)}>
+    <div
+      className={cn(
+        "flex items-center gap-2 group cursor-pointer justify-start",
+        className,
+      )}
+    >
       <div className="relative flex items-center justify-center">
         {/* Abstract Icon: A stylized 'R' that doubles as a sparkle/shining star */}
         <svg
@@ -41,12 +51,18 @@ export const Logo: React.FC<LogoProps> = ({ className, isLight = false }) => {
           />
         </svg>
       </div>
-      
+
       <div className="flex flex-col items-start leading-none">
-        <span className={cn(
-          "text-3xl md:text-5xl font-serif font-bold tracking-tight transition-colors",
-          isLight ? "text-charcoal" : "text-white"
-        )}>
+        <span
+          className={cn(
+            "text-3xl md:text-5xl font-serif font-bold tracking-tight transition-colors",
+            forceDark
+              ? "text-charcoal"
+              : isLight
+                ? "text-charcoal"
+                : "text-white",
+          )}
+        >
           RITHS
         </span>
         <span className="text-[11px] md:text-base font-sans font-bold text-gold uppercase -mt-1 ml-[2px] md:ml-[3px]">

@@ -61,18 +61,83 @@ const Navbar = () => {
             Book Now
           </a>
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className={cn(
+            "md:hidden transition-colors",
+            isScrolled ? "text-charcoal" : "text-white",
+          )}
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? <X /> : <Menu />}
+        </button>
       </div>
 
-      {/* Mobile Menu Toggle */}
-      <button
-        className={cn(
-          "md:hidden transition-colors",
-          isScrolled ? "text-charcoal" : "text-white",
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex md:hidden"
+            style={{ pointerEvents: 'auto' }}
+          >
+            {/* Overlay */}
+            <div
+              className="absolute inset-0 bg-black/70"
+              onClick={() => setIsMobileMenuOpen(false)}
+              style={{ zIndex: 1 }}
+            />
+            {/* Sidebar */}
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="ml-auto w-4/5 max-w-xs h-full bg-white shadow-2xl flex flex-col relative z-10"
+              style={{ minWidth: '260px', height: '100vh' }}
+            >
+              <button
+                className="absolute top-4 right-4 text-charcoal"
+                onClick={() => setIsMobileMenuOpen(false)}
+                aria-label="Close mobile menu"
+              >
+                <X size={28} />
+              </button>
+              {/* Logo at the top */}
+              <div className="flex items-center justify-start px-6 pt-8 pb-4">
+                <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>
+                  <Logo isLight={false} forceDark={true} />
+                </a>
+              </div>
+              <div className="flex flex-col gap-8 px-6 mt-2 flex-1 justify-center">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="text-xl font-semibold text-charcoal hover:text-gold transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                ))}
+                <a
+                  target="_blank"
+                  href="https://forms.gle/E5MkhRyzW41yH6D29"
+                  className="bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-gold/20 text-center"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Book Now
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
         )}
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-      >
-        {isMobileMenuOpen ? <X /> : <Menu />}
-      </button>
+      </AnimatePresence>
     </nav>
   );
 };
