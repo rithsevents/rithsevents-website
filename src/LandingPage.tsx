@@ -214,28 +214,28 @@ const Services = () => {
       title: "Weddings/Receptions",
       description:
         "Comprehensive wedding planning, from intimate ceremonies to lavish celebrations, tailored to your unique love story.",
-      image: "assets/images/services/wedding-image.jpg",
+      image: "assets/images/services/wedding-image.webp",
       icon: "💑",
     },
     {
       title: "Engagement Function",
       description:
         "Make your engagement function unforgettable with our expert planning and personalized touches.",
-      image: "assets/images/services/engagement-function.jpg",
+      image: "assets/images/services/engagement-function.webp",
       icon: "💍",
     },
     {
       title: "Corporate Events",
       description:
         "Professional management for conferences, product launches, and galas.",
-      image: "assets/images/services/corporate-event.jpg",
+      image: "assets/images/services/corporate-event.webp",
       icon: "🏢",
     },
     {
       title: "Birthday Partys & Private Gatherings",
       description:
         "Birthdays, anniversaries, and intimate gatherings with a unique touch.",
-      image: "assets/images/services/birthday-party.jpg",
+      image: "assets/images/services/birthday-party.webp",
       icon: "🎉",
     },
     {
@@ -249,7 +249,7 @@ const Services = () => {
       title: "Baby Shower",
       description:
         "Celebrate your baby's arrival with our elegant and personalized baby shower planning.",
-      image: "assets/images/services/baby-shower.jpg",
+      image: "assets/images/services/baby-shower.webp",
       icon: "👶",
     },
     {
@@ -326,7 +326,7 @@ const Gallery = () => {
     "assets/images/gallery/stage/photo-4.webp",
     "assets/images/gallery/stage/photo-5.webp",
     "assets/images/gallery/stage/photo-6.webp",
-    "assets/images/gallery/stage/photo-7.webp",
+    "assets/images/gallery/stage/photo-8.webp",
   ];
 
   const cakes = [
@@ -335,7 +335,24 @@ const Gallery = () => {
     "assets/images/gallery/cakes/cake-3.webp",
     "assets/images/gallery/cakes/cake-4.webp",
     "assets/images/gallery/cakes/cake-5.webp",
+    "assets/images/gallery/cakes/cake-6.webp",
   ];
+
+  const wedding = [
+    "assets/images/gallery/wedding/wedding-gallery-1.webp",
+    "assets/images/gallery/wedding/wedding-gallery-2.webp",
+    "assets/images/services/wedding-image.webp"
+  ]
+
+  const corporate = [
+    "assets/images/services/corporate-event.webp",
+    "assets/images/gallery/corporate/corporate-event-dec.webp"
+  ];
+
+  const catering = [
+    "assets/images/gallery/catering/catering-gallery-2.webp",
+    "assets/images/services/Catering-service.webp"
+  ]
 
   return (
     <section id="gallery" className="py-24 bg-white">
@@ -346,7 +363,7 @@ const Gallery = () => {
               Gallery
             </h2>
             <h3 className="text-4xl md:text-5xl font-serif text-charcoal">
-              Our Birthday Decorations
+              Our Birthday Event Decorations
             </h3>
           </div>
           <p className="text-gray-500 max-w-md">
@@ -385,10 +402,11 @@ const Gallery = () => {
         </div>
       </div>
       <br />
+      <br />
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <h3 className="text-4xl md:text-5xl font-serif text-charcoal">
+            <h3 className="text-4xl md:text-5xl font-serif text-charcoal max-w-2xl">
               Our Colourful Cakes
             </h3>
           </div>
@@ -401,6 +419,127 @@ const Gallery = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
           {cakes.map((img, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className={cn(
+                "relative overflow-hidden rounded-2xl group cursor-pointer aspect-square",
+                "md:row-span-2 md:aspect-auto",
+              )}
+            >
+              <a href={img} target="_blank">
+                <img
+                  src={img}
+                  alt={`Gallery ${idx}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <br/>
+      <br/>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <h3 className="text-4xl md:text-5xl font-serif text-charcoal max-w-2xl">
+              Our Wedding Event Decorations
+            </h3>
+          </div>
+          <p className="text-gray-500 max-w-md">
+            We create unforgettable wedding event decorations that transform
+            venues into enchanting spaces, reflecting the unique love story of each
+            couple with elegance and creativity.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          {wedding.map((img, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className={cn(
+                "relative overflow-hidden rounded-2xl group cursor-pointer aspect-square",
+                "md:row-span-2 md:aspect-auto",
+              )}
+            >
+              <a href={img} target="_blank">
+                <img
+                  src={img}
+                  alt={`Gallery ${idx}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <br/>
+      <br/>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <h3 className="text-4xl md:text-5xl font-serif text-charcoal max-w-2xl">
+              Our Corporate Event Decorations
+            </h3>
+          </div>
+          <p className="text-gray-500 max-w-md">
+            We design and execute corporate event decorations that elevate brand
+            presence and create memorable experiences, blending professionalism with creativity to impress clients and colleagues alike.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          {corporate.map((img, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className={cn(
+                "relative overflow-hidden rounded-2xl group cursor-pointer aspect-square",
+                "md:row-span-2 md:aspect-auto",
+              )}
+            >
+              <a href={img} target="_blank">
+                <img
+                  src={img}
+                  alt={`Gallery ${idx}`}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </a>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <br/>
+      <br/>
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+          <div>
+            <h3 className="text-4xl md:text-5xl font-serif text-charcoal max-w-2xl">
+              Our Catering Team
+            </h3>
+          </div>
+          <p className="text-gray-500 max-w-md">
+            We provide exceptional catering services that complement your event,
+            ensuring every bite is a delight and every moment is memorable.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          {catering.map((img, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, scale: 0.9 }}
