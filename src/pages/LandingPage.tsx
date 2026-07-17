@@ -1,146 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Menu, X, Phone, Instagram, Facebook, Mail } from "lucide-react";
-import { cn } from "./lib/utils";
-import Logo from "./components/Logo";
-
-const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "Gallery", href: "#gallery" },
-    { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
-  ];
-
-  return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6",
-        isScrolled
-          ? "bg-white/95 backdrop-blur-md shadow-sm py-3"
-          : "bg-charcoal/40 backdrop-blur-sm py-5",
-      )}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <div className="flex items-center justify-start gap-12">
-          <a href="#home" className="flex-shrink-0">
-            <Logo isLight={isScrolled} />
-          </a>
-        </div>
-
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className={cn(
-                "text-lg font-medium transition-colors hover:text-gold",
-                isScrolled ? "text-charcoal" : "text-white",
-              )}
-            >
-              {link.name}
-            </a>
-          ))}
-          <a
-            target="_blank"
-            href="https://forms.gle/E5MkhRyzW41yH6D29"
-            className="bg-gold hover:bg-gold-dark text-white px-6 py-2 rounded-full text-base font-semibold transition-all shadow-lg hover:shadow-gold/20"
-          >
-            Book Now
-          </a>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button
-          className={cn(
-            "md:hidden transition-colors",
-            isScrolled ? "text-charcoal" : "text-white",
-          )}
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle mobile menu"
-        >
-          {isMobileMenuOpen ? <X /> : <Menu />}
-        </button>
-      </div>
-
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] flex md:hidden"
-            style={{ pointerEvents: "auto" }}
-          >
-            {/* Overlay */}
-            <div
-              className="absolute inset-0 bg-black/70"
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{ zIndex: 1 }}
-            />
-            {/* Sidebar */}
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="ml-auto w-4/5 max-w-xs h-full bg-white shadow-2xl flex flex-col relative z-10"
-              style={{ minWidth: "260px", height: "100vh" }}
-            >
-              <button
-                className="absolute top-4 right-4 text-charcoal"
-                onClick={() => setIsMobileMenuOpen(false)}
-                aria-label="Close mobile menu"
-              >
-                <X size={28} />
-              </button>
-              {/* Logo at the top */}
-              <div className="flex items-center justify-start px-6 pt-8 pb-4">
-                <a href="#home" onClick={() => setIsMobileMenuOpen(false)}>
-                  <Logo isLight={false} forceDark={true} />
-                </a>
-              </div>
-              <div className="flex flex-col gap-8 px-6 mt-2 flex-1 justify-center">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    className="text-xl font-semibold text-charcoal hover:text-gold transition-colors"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.name}
-                  </a>
-                ))}
-                <a
-                  target="_blank"
-                  href="https://forms.gle/E5MkhRyzW41yH6D29"
-                  className="bg-gold hover:bg-gold-dark text-white px-6 py-3 rounded-full text-lg font-semibold transition-all shadow-lg hover:shadow-gold/20 text-center"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Book Now
-                </a>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </nav>
-  );
-};
+import { cn } from "../lib/utils";
+import Logo from "../components/Logo";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -298,17 +161,22 @@ const Services = () => {
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
-                <a
-                  href={
-                    /* idx === 3
-                      ? "assets/images/package-details/birthday-package.jpeg"
-                      : */ "#contact"
+                <Link
+                  to={
+                    service.title === "Weddings/Receptions" || service.title === "Engagement Function"
+                      ? "/weddings"
+                      : service.title === "Birthday Partys & Private Gatherings"
+                        ? "/birthdays"
+                        : service.title === "Baby Shower"
+                          ? "/baby-shower" 
+                          : service.title === "Yogaambiga Caterers"
+                            ? "/catering"
+                            : "#"
                   }
-                  // target={idx === 3 ? "_blank" : undefined}
-                  className="text-gold font-semibold text-sm hover:underline"
+                  className="text-gold font-semibold hover:underline"
                 >
-                  Learn More →
-                </a>
+                  Learn More
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -341,18 +209,18 @@ const Gallery = () => {
   const wedding = [
     "assets/images/gallery/wedding/wedding-gallery-1.webp",
     "assets/images/gallery/wedding/wedding-gallery-2.webp",
-    "assets/images/services/wedding-image.webp"
-  ]
+    "assets/images/services/wedding-image.webp",
+  ];
 
   const corporate = [
     "assets/images/services/corporate-event.webp",
-    "assets/images/gallery/corporate/corporate-event-dec.webp"
+    "assets/images/gallery/corporate/corporate-event-dec.webp",
   ];
 
   const catering = [
     "assets/images/gallery/catering/catering-gallery-2.webp",
-    "assets/images/services/Catering-service.webp"
-  ]
+    "assets/images/services/Catering-service.webp",
+  ];
 
   return (
     <section id="gallery" className="py-24 bg-white">
@@ -442,8 +310,8 @@ const Gallery = () => {
         </div>
       </div>
 
-      <br/>
-      <br/>
+      <br />
+      <br />
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
@@ -453,8 +321,8 @@ const Gallery = () => {
           </div>
           <p className="text-gray-500 max-w-md">
             We create unforgettable wedding event decorations that transform
-            venues into enchanting spaces, reflecting the unique love story of each
-            couple with elegance and creativity.
+            venues into enchanting spaces, reflecting the unique love story of
+            each couple with elegance and creativity.
           </p>
         </div>
 
@@ -483,8 +351,8 @@ const Gallery = () => {
         </div>
       </div>
 
-      <br/>
-      <br/>
+      <br />
+      <br />
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
@@ -494,7 +362,8 @@ const Gallery = () => {
           </div>
           <p className="text-gray-500 max-w-md">
             We design and execute corporate event decorations that elevate brand
-            presence and create memorable experiences, blending professionalism with creativity to impress clients and colleagues alike.
+            presence and create memorable experiences, blending professionalism
+            with creativity to impress clients and colleagues alike.
           </p>
         </div>
 
@@ -523,8 +392,8 @@ const Gallery = () => {
         </div>
       </div>
 
-      <br/>
-      <br/>
+      <br />
+      <br />
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
@@ -935,58 +804,6 @@ const ContactForm = () => {
   );
 };
 
-const Footer = () => {
-  return (
-    <footer className="bg-white py-12 border-t border-gray-100">
-      <div className="max-w-7xl mx-auto px-6">
-        {/* Top Section: Logo and Navigation */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
-          <a href="#home">
-            <Logo isLight={true} />
-          </a>
-
-          <div className="flex flex-wrap justify-center gap-8 text-base font-medium text-gray-500">
-            <a href="#home" className="hover:text-gold">
-              Home
-            </a>
-            <a href="#services" className="hover:text-gold">
-              Services
-            </a>
-            <a href="#gallery" className="hover:text-gold">
-              Gallery
-            </a>
-            <a href="#about" className="hover:text-gold">
-              About
-            </a>
-            <a href="#contact" className="hover:text-gold">
-              Contact
-            </a>
-          </div>
-        </div>
-
-        {/* Bottom Section: Centered Copyright and Startup Footnote */}
-        <div className="flex flex-col items-center justify-center pt-8 border-t border-gray-50 space-y-2">
-          <div className="text-md text-gray-400 text-center">
-            © 2026 Riths Events. All rights reserved.
-          </div>
-
-          <div className="text-sm text-gray-400 text-center">
-            Designed & Developed by{" "}
-            <a
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gold font-semibold hover:underline transition-all"
-            >
-              Karpi Tech Labs
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
-};
-
 const WhatsAppButton = () => {
   const whatsappNumber = "919092859794";
 
@@ -1014,14 +831,14 @@ const WhatsAppButton = () => {
 export default function LandingPage() {
   return (
     <div className="font-sans">
-      <Navbar />
+      {/* <Navbar /> */}
       <Hero />
       <Services />
       <Gallery />
       <About />
       <Testimonials />
       <ContactForm />
-      <Footer />
+      {/* <Footer /> */}
       <WhatsAppButton />
     </div>
   );
