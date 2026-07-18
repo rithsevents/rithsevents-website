@@ -44,7 +44,7 @@ const Weddings: React.FC = () => {
           Signature Experiences
         </span>
         <h1 className="text-4xl md:text-5xl font-serif text-white mt-2">
-          Luxury Wedding/Engagement Planning
+          Luxury Wedding Planning
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-gray-400 text-lg font-light">
           Bringing your dream wedding to life with flawless end-to-end

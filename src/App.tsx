@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Birthdays from './pages/Birthdays';
 import BabyShower from './pages/BabyShower';
 import Catering from './pages/Catering';
+import Engagement from './pages/Engagement';
 
 function App() {
   return (
@@ -23,6 +24,8 @@ function App() {
             <Route path="/birthdays" element={<Birthdays />} />
             <Route path="/baby-shower" element={<BabyShower />} />
             <Route path="/catering" element={<Catering />} />
+            <Route path="/engagement" element={<Engagement />} />
+            <Route path="*" element={<LandingPage />} />
             {/* You can add /birthdays and /surprise-decor here next */}
           </Routes>
         </main>

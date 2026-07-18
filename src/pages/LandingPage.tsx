@@ -163,15 +163,17 @@ const Services = () => {
                 </p>
                 <Link
                   to={
-                    service.title === "Weddings/Receptions" || service.title === "Engagement Function"
+                    service.title === "Weddings/Receptions"
                       ? "/weddings"
                       : service.title === "Birthday Partys & Private Gatherings"
                         ? "/birthdays"
                         : service.title === "Baby Shower"
-                          ? "/baby-shower" 
+                          ? "/baby-shower"
                           : service.title === "Yogaambiga Caterers"
                             ? "/catering"
-                            : "#"
+                            : service.title === "Engagement Function"
+                              ? "/engagement"
+                              : "#"
                   }
                   className="text-gold font-semibold hover:underline"
                 >
