@@ -161,24 +161,35 @@ const Services = () => {
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   {service.description}
                 </p>
-                <Link
-                  to={
-                    service.title === "Weddings/Receptions"
-                      ? "/weddings"
-                      : service.title === "Birthday Partys & Private Gatherings"
-                        ? "/birthdays"
-                        : service.title === "Baby Shower"
-                          ? "/baby-shower"
-                          : service.title === "Yogaambiga Caterers"
-                            ? "/catering"
-                            : service.title === "Engagement Function"
-                              ? "/engagement"
-                              : "#"
-                  }
-                  className="text-gold font-semibold hover:underline"
-                >
-                  Learn More
-                </Link>
+                {service.title === "Corporate Events" ||
+                service.title === "Surprise Decor" ? (
+                  <a
+                    href="#contact"
+                    className="text-gold font-semibold hover:underline"
+                  >
+                    Learn More
+                  </a>
+                ) : (
+                  <Link
+                    to={
+                      service.title === "Weddings/Receptions"
+                        ? "/weddings"
+                        : service.title ===
+                            "Birthday Partys & Private Gatherings"
+                          ? "/birthdays"
+                          : service.title === "Baby Shower"
+                            ? "/baby-shower"
+                            : service.title === "Yogaambiga Caterers"
+                              ? "/catering"
+                              : service.title === "Engagement Function"
+                                ? "/engagement"
+                                : "#"
+                    }
+                    className="text-gold font-semibold hover:underline"
+                  >
+                    Learn More
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}
